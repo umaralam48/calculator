@@ -13,7 +13,8 @@ $('button').click(function() {
         }
         num = num * 10 + Number($(this).html());
         $('#display').val(num);
-        console.log('Number');
+        if (num == 1503)
+            $('#display').val('Umar is funny! Haha. :) ');
 
     } else {
         // if ($(this).attr("id") == 'addButton') 
