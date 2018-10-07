@@ -14,7 +14,9 @@ $('button').click(function() {
         num = num * 10 + Number($(this).html());
         $('#display').val(num);
         if (num == 1503)
-            $('#display').val('Umar is funny! Haha. :) ');
+            $('#display').val('Umar is funny! Haha! :) ');
+        if (num == 17147714)
+            $('#display').val('Got you! Haha. :) ');
 
     } else {
         // if ($(this).attr("id") == 'addButton') 
@@ -34,11 +36,11 @@ $('button').click(function() {
             $('#display').val('');
         } else {
             console.log('operator');
-            if (!num1 && num) {
+            if (!num1 && num && num1 != 0) {
                 num1 = num;
                 num = 0;
                 op = $(this).html();
-            } else if (ans) {
+            } else if (ans || ans == 0) {
                 num = 0;
                 ans = undefined;
                 op = $(this).html();
