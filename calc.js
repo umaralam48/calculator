@@ -21,10 +21,11 @@ $('button').click(function() {
     } else {
         // if ($(this).attr("id") == 'addButton') 
         if ($(this).attr("id") == 'equalsButton') {
-
-            ans = compute(num1, num, op);
-            $('#display').val(ans);
-            num1 = ans;
+            if (op) {
+                ans = compute(num1, num, op);
+                $('#display').val(ans);
+                num1 = ans;
+            }
 
             //num = 0;
         } else if ($(this).attr("id") == 'clearButton') {
@@ -55,6 +56,7 @@ $('button').click(function() {
 });
 
 function compute(op1, op2, op) {
+
     if (op == '+')
         return op1 + op2;
     else if (op == '-')
