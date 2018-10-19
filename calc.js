@@ -12,11 +12,6 @@ $('button').click(function() {
             op = undefined;
         }
         num = num * 10 + Number($(this).html());
-        $('#display').val(num);
-        if (num == 1503)
-            $('#display').val('Umar is funny! Haha! :) ');
-        if (num == 17147714)
-            $('#display').val('Got you! Haha. :) ');
 
     } else {
         // if ($(this).attr("id") == 'addButton') 
