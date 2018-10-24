@@ -1,22 +1,24 @@
 /*
  * Implement all your JavaScript in this file!
  */
-var num = 0;
+var num;
 var num1, ans, op;
 $('button').click(function() {
     if (Number($(this).html()) || (Number($(this).html())) == 0) {
         if (ans) {
             ans = undefined;
             num1 = undefined;
-            num = 0;
+            num = undefined;
             op = undefined;
         }
+        if (!num)
+            num = 0;
         num = num * 10 + Number($(this).html());
-
+        $('#display').val(num);
     } else {
         // if ($(this).attr("id") == 'addButton') 
         if ($(this).attr("id") == 'equalsButton') {
-            if (op) {
+            if (op && (num || num == 0)) {
                 ans = compute(num1, num, op);
                 $('#display').val(ans);
                 num1 = ans;
@@ -27,23 +29,25 @@ $('button').click(function() {
 
             ans = undefined;
             num1 = undefined;
-            num = 0;
+            num = undefined;
             op = undefined;
             $('#display').val('');
         } else {
             console.log('operator');
-            if (!num1 && num && num1 != 0) {
+            if (!num1 && (num || num == 0) && num1 != 0) {
                 num1 = num;
-                num = 0;
+                num = undefined;
                 op = $(this).html();
             } else if (ans || ans == 0) {
-                num = 0;
+                num = undefined;
                 ans = undefined;
                 op = $(this).html();
             } else {
-                num1 = compute(num1, num, op);
-                num = 0;
-                $('#display').val(num1);
+                if (num1 && num) {
+                    num1 = compute(num1, num, op);
+                    num = undefined;
+                    $('#display').val(num1);
+                }
                 op = $(this).html();
             }
         }
